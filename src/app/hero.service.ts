@@ -18,27 +18,24 @@ export class HeroService {
   private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(
-    private messageServiceinHeroService:MessageService,
-    private http:HttpClient
+    private messageServiceinHeroService: MessageService,
+    private http: HttpClient
   ) {
   }
-
-
 
 
   getHeroes(): Observable<Hero[]> {
     this.log("going to the http client");
 
-    let fetchedDataFrom:Observable<Hero[]> = this.http.get<Hero[]>(this.heroesUrl);
+    let fetchedDataFrom: Observable<Hero[]> = this.http.get<Hero[]>(this.heroesUrl);
 
     return fetchedDataFrom
 
       .pipe(
-        catchError(this.handleError<Hero[]>(`getHeroes`,[])),
-        tap(_=>this.log('fetched heroes'))
+        catchError(this.handleError<Hero[]>(`getHeroes`, [])),
+        tap(_ => this.log('fetched heroes'))
       );
   }
-
 
 
   //hero details
@@ -54,14 +51,12 @@ export class HeroService {
   }
 
 
-
-
   private log(message: string) {
     this.messageServiceinHeroService.add(`HeroService: ${message}`);
   }
 
 
-  private handleError<T>(operation=`operation`,result?:T) {
+  private handleError<T>(operation = `operation`, result?: T) {
     return (error: any): Observable<T> => {
       console.log(error);
       this.log(`${operation} failed: ${error.message}`)
@@ -69,12 +64,24 @@ export class HeroService {
     };
   }
 
-  updateHero(heroChanged:Hero){
-    return this.http.put(this.heroesUrl,heroChanged,this.httpOptions);
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
+
+  /** POST: add a new hero to the server */
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  }
+
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
 }
-
-

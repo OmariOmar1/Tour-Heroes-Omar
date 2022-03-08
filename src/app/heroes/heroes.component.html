@@ -6,6 +6,15 @@
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
   </li>
+  <div>
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(heroName.value); ">
+      Add hero
+    </button>
+  </div>
 </ul>
 
 
