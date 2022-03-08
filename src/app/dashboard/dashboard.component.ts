@@ -9,7 +9,7 @@ import { HeroService } from '../hero.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-
+  showLoader :boolean=true;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -17,7 +17,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
+  this.showLoader=true;
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(0, 3));
+      .subscribe(heroes => this.heroes = heroes.slice(1,5));
+    this.showLoader=false;
+
   }
 }

@@ -2,7 +2,8 @@
 
   <h2>{{hero.name | uppercase}}'S Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
-  <button name="backbutton" type="button" (click)="goBack()">Cancel</button>
+  <button name="backbutton" type="button" (click)="goBack()">Back</button>
+  <button name="save" (click)="save()">save info</button>
 
   <div>
     <label for="hero-name">Hero name: </label>
