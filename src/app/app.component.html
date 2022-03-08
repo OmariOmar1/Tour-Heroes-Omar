@@ -1,8 +1,15 @@
 <h1>{{title}}</h1>
+<!--navigation start -->
 <nav>
   <a routerLink="/dashboard">Dashboard </a>
   <a routerLink="/heroes"> Heroes</a>
 </nav>
-<router-outlet></router-outlet>
+<!--navigation ends-->
 
+<!--routed component start-->
+<router-outlet></router-outlet>
+<!--routed component ends-->
+
+<!--messages component start-->
 <app-messages></app-messages>
+<!--messages component ends-->
