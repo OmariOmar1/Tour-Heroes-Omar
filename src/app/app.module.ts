@@ -13,6 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./in-memory-data.service";
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavigationbarComponent } from './navigationbar/navigationbar.component'
     DashboardComponent,
     HeroSearchComponent,
     NavigationbarComponent,
+    HeroFormComponent,
 
   ],
   imports: [
