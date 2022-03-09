@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Hero} from "./hero";
-import {HEROES} from "./heroes/mock-heroes";
 import {Observable,of} from "rxjs";
 import {MessageService} from "./message.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import {error} from "@angular/compiler/src/util";
+import { catchError, tap } from 'rxjs/operators';
 
 
 
@@ -104,11 +102,12 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+
       tap(x => x.length ?
-        this.log(`found heroes matching "${term}"`) :
-        this.log(`no heroes matching "${term}"`)),
+
+        this.log(`found heroes matching "${term}"`) : this.log(`no heroes matching "${term}"`)),
+
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
