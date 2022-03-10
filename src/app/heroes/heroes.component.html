@@ -1,25 +1,64 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-6">
 <h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button type="button" class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
-  </li>
-  <div>
-    <label for="new-hero">Hero name: </label>
-    <input id="new-hero" #heroName />
-
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(heroName.value); ">
-
-      Add hero
-    </button>
+    </div>
+<div id="searchComponent" class="col-4">
+  <app-hero-search></app-hero-search>
+</div>
   </div>
 
+<div class="list-group">
+  <a  class="list-group-item list-group-item-action active">
+    Heroes List
+  </a>
 
-</ul>
+  <div *ngFor="let hero of heroes">
+
+  <a routerLink="/detail/{{hero.id}}" class="list-group-item list-group-item-action">{{hero.name}}</a>
+    <button type="button" class="btn btn-danger" title="delete hero"
+            (click)="delete(hero)">X</button>
+ </div>
+
+</div>
+<!--listing heroes end-->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<!--<ul class="heroes">-->
+<!--  <li *ngFor="let hero of heroes">-->
+<!--    <a routerLink="/detail/{{hero.id}}">-->
+<!--      <span class="badge">{{hero.id}}</span> {{hero.name}}-->
+<!--    </a>-->
+<!--    <button type="button" class="delete" title="delete hero"-->
+<!--            (click)="delete(hero)">x</button>-->
+<!--  </li>-->
+<!--  <div>-->
+<!--    <label for="new-hero">Hero name: </label>-->
+<!--    <input id="new-hero" #heroName />-->
+
+<!--    &lt;!&ndash; (click) passes input value to add() and then clears the input &ndash;&gt;-->
+<!--    <button type="button" class="add-button" (click)="add(heroName.value); ">-->
+
+<!--      Add hero-->
+<!--    </button>-->
+<!--  </div>-->
+
+<!--</ul>-->
+
+<!--listing heroes start-->

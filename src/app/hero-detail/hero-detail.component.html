@@ -1,13 +1,27 @@
-<div *ngIf="hero">
+
+
+
+
+
+<div *ngIf="hero" id="heroDetailsCard" class="heroDetailsCard">
 
   <h2>{{hero.name | uppercase}}'S Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <button name="backbutton" type="button" (click)="goBack()">Back</button>
-  <button name="save" (click)="save()">save info</button>
 
-  <div>
+
+
+  <div class="info">
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
   </div>
+  <h3><span>Id: </span>{{hero.id}}</h3>
+
+
+
+
+
+  <button class="btn btn-primary" name="backbutton" type="button" (click)="goBack()">Back</button>
+  <button class="btn btn-secondary" name="save" (click)="save()">save info</button>
+
 
 </div>
+

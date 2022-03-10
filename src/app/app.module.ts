@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- NgModel lives here
+import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import { RouterModule } from '@angular/router';
 import {AppRoutingModule} from "./app-routing.module";
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import {InMemoryDataService} from "./in-memory-data.service";
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { YoutubeTestingApiComponent } from './youtube-testing-api/youtube-testing-api.component';
 
 
 @NgModule({
@@ -26,11 +27,12 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     HeroSearchComponent,
     NavigationbarComponent,
     HeroFormComponent,
+    YoutubeTestingApiComponent,
 
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+
     FormsModule,
     RouterModule,
     AppRoutingModule,
