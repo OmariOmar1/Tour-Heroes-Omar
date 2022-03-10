@@ -2,12 +2,12 @@
 
 <div class="container">
 
-  <div class="row">
+  <div>
 
-    <div class="col">
+    <div >
 <h2>My Heroes</h2>
     </div>
-<div id="searchComponent" class="col">
+<div id="searchComponent" >
   <app-hero-search></app-hero-search>
 </div>
   </div>
@@ -22,8 +22,8 @@
   <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action">
   {{hero.name}}
  </a>
-  <button type="button" class="btn btn-danger" title="delete hero"
-          (click)="delete(hero)">X</button>
+  <button type="button" class="btn btn-danger delete" title="delete hero"
+          (click)="delete(hero)">Delete Hero</button>
   </div>
 
 </div>
