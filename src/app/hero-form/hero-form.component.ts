@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Hero} from "../hero";
+import {NgForm} from "@angular/forms";
+
 
 @Component({
   selector: 'app-hero-form',
@@ -7,16 +8,30 @@ import {Hero} from "../hero";
   styleUrls: ['./hero-form.component.css']
 })
 export class HeroFormComponent implements OnInit {
+submitMessage: any|NgForm =""
+  submitted = false;
 
+  onSubmit() { this.submitted = true; }
   constructor() { }
 
   ngOnInit(): void {
 
   }
- power="";
-  powers=['Really smart','Really smart','Really fat','Really Passionate','Really strong','Really fast'];
-  model = new Hero(18,'dr Smartyboy',this.powers[0],'chicken tindies');
-  submitted=false;
-  title: string='';
+message: string =""
+myage=""
+  send(messageFromForm:string){
+
+    if (!isNaN(Number(messageFromForm))) {
+      this.message = `hello and welcome to the first Story for your hero we have noticed that you are ${messageFromForm} years old what a great age to be in this day and age \n `;
+    }
+    else {
+      this.message = `hello and welcome to the first Story for your hero we have noticed that you are  ...... hold on that is not a number!  \n\n you have lost the game `;
+    }
+
+
+
+  }
 
 }
+
+

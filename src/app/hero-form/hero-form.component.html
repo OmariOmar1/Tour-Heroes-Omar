@@ -1,19 +1,50 @@
-<h1>Hero CV</h1>
-<div class="form-group">
+<h1>Hero Form</h1>
+
+
+<form #itemForm="ngForm" (ngSubmit)="onSubmit()" ng-submit="console.log('hello world')">
+
   <label for="name">Name</label>
-  <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name">
-</div>
 
-<div class="form-group">
-  <label for="alterEgo">Alter Ego</label>
-  <input type="text"  class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
-</div>
 
-<div class="form-group">
-  <label for="power">Hero Power</label>
-  <select class="form-control"  id="power"
-          required [(ngModel)]="model.power" name="power">
-    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-  </select>
+  <input type="text" id="name" class="form-control" name="name" ngModel required />
+
+  <div [hidden]="itemForm.valid || itemForm.pristine" class="alert alert-danger">
+    *required field
+  </div>
+
+
+
+
+
+<div [hidden]="!submitted">
+
+
+    <form >
+      <label for="age">Age</label>
+      <input type="text" id="age" class="form-control" name="age"  [(ngModel)]="myage" ngModel required />
+      <button type="button" class="btn btn-primary" (click)="send(myage)">Send</button>
+    </form>
+  </div>
+
+
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">age</div>
+    <div class="col-xs-9">{{myage}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Alter Ego</div>
+    <div class="col-xs-9"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Power</div>
+    <div class="col-xs-9">the</div>
+  </div>
+  <br>
+  <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
 </div>
-<p>Hello my name is {{model.name}} I am {{model.power}} my alterego is {{model.alterEgo}}</p>
+</form>
+
+{{myage}}
