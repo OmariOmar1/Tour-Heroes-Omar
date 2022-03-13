@@ -53,6 +53,35 @@
   border-radius: 4px 0 0 4px;
 }
 
-.delete{
+.deleteHeroButton{
+  color: #fff;
+  background-color: #3f525c;
   width: 100%;
 }
+.deleteHeroButton:hover{
+  color: #e6e6e6;
+  transition: 0.2s;
+  background-color: #a458a2;
+}
+
+.listTitle{
+background: #a458a2;
+  color: #ffffff;
+}
+.listTitle:hover{
+  background-color: #a458a2;
+  color: #fffdfd;
+}
+.listTextContent{
+  text-align: center;
+  font-size: large;
+}
+.heroName{
+  margin-right: 50%;
+  border-bottom: 3px solid #a458a2;
+}
+
+h2{
+  text-align: center;
+}
+

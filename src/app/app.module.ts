@@ -14,7 +14,7 @@ import {InMemoryDataService} from "./in-memory-data.service";
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
-import { YoutubeTestingApiComponent } from './youtube-testing-api/youtube-testing-api.component';
+
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { YoutubeTestingApiComponent } from './youtube-testing-api/youtube-testin
     HeroSearchComponent,
     NavigationbarComponent,
     HeroFormComponent,
-    YoutubeTestingApiComponent,
+
 
   ],
   imports: [

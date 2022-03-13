@@ -36,6 +36,7 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(hero: Hero): void {
+    window.alert("Are you sure you Want to delete Hero?")
     this.heroes = this.heroes.filter(h => h !== hero);
     console.log(this.heroes);
     this.heroService.deleteHero(hero.id).subscribe();

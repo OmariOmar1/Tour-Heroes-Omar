@@ -6,7 +6,7 @@ h2 {
 
 .heroes-menu {
   padding: 0;
-  margin: auto;
+  margin: auto auto 3%;
   max-width: 1000px;
 
   /* flexbox */
@@ -16,13 +16,14 @@ h2 {
   justify-content: space-around;
   align-content: flex-start;
   align-items: flex-start;
+
 }
 
 a {
   background-color: #3f525c;
   border-radius: 2px;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   text-decoration: none;
   display: inline-block;
   color: #fff;
@@ -31,11 +32,19 @@ a {
   min-width: 70px;
   margin: .5rem auto;
   box-sizing: border-box;
-
+  /**/
   /* flexbox */
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
+}
+
+.heroDashboardImg{
+
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+
 }
 
 @media (min-width: 600px) {

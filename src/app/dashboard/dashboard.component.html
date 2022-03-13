@@ -2,6 +2,19 @@
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
      routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
+
+    <span class="heroDashboardImg">
+        <img src="assets/hero.default.png" style="width: inherit;">
+    </span>
+
+    <span>
+          {{hero.name}}
+
+      </span>
+
   </a>
+</div>
+
+<div class="DashboardSearchBar">
+  <app-hero-search></app-hero-search>
 </div>

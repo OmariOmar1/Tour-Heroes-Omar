@@ -13,16 +13,19 @@
   </div>
 
 <div class="list-group">
-  <a  class="list-group-item list-group-item-action active">
+  <a  class="list-group-item list-group-item-action listTitle">
+   <h2>
     Heroes List
+   </h2>
   </a>
 
   <div *ngFor="let hero of heroes">
 
-  <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action">
-  {{hero.name}}
+  <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action listTextContent">
+    <span class="heroName"> {{hero.name}} </span>
+    <span class="heroId">Hero Number:{{hero.id}}</span>
  </a>
-  <button type="button" class="btn btn-danger delete" title="delete hero"
+  <button type="button" class="btn deleteHeroButton" title="delete hero"
           (click)="delete(hero)">Delete Hero</button>
   </div>
 

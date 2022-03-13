@@ -1,14 +1,66 @@
-.heroDetailsCard {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  text-align: center;
-  width: 40%;
+
+/*setting up background to for the hero details  modal*/
+.heroDetailsCadBackground{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 900;
 }
+/*stlying the card*/
+.heroDetailsCard {
+  width: 30%;
+  margin: 10% auto;
+  padding: 35px;
+  border: 2px solid #18606a;
+  border-radius: 2%;
+  text-align: center;
+  transition: all 0.5s ;
+  background: #3f525c;
+  color: #e6e6e6;
+
+
+}
+
 
 .heroDetailsCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: all 0.5s ease-in;
+  background: #3f525c;
+
 }
 
-.info {
-  padding: 2px 16px;
+
+.heroDetailsButton{
+  font-size: 1em;
+  padding: 10px;
+  color: #617268;
+  border: 2px solid #2a2a49;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+
+
+.heroDetailsButton:hover{
+  background: #2a2a49;
+}
+
+button, input, select, textarea {
+  font-family: cursive;
+  color: #617268;
+
+}
+
+/*////////////////////////////////////////////////*/
+
+@media screen and (max-width: 700px){
+  .heroDetailsCard{
+    width: 70%;
+  }
 }
