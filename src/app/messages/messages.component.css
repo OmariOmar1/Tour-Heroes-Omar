@@ -1,19 +1,77 @@
-/* MessagesComponent's private CSS styles */
-h2 {
-  color: #A80000;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+
+
+.messeges{
+  overflow: scroll;
 }
 
-.clear {
-  color: #333;
-  background-color: #eee;
-  margin-bottom: 12px;
-  padding: 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
+.message-blue {
+  transition: all .5s ease-in-out;
+
+  position: relative;
+  margin:0 0 1% 0;
+  padding: 10px;
+  background-color: #A8DDFD;
+  width: 200px;
+  height: 79px;
+  text-align: left;
+  font: 400 .9em 'Open Sans', sans-serif;
+  border: 1px solid #97C6E3;
+  border-radius: 10px;
+
 }
-.clear:hover {
-  color: white;
-  background-color: #42545C;
+
+
+
+.message-content {
+  padding: 0;
+  margin: 0 0 3px;
 }
+
+
+
+.message-timestamp-left {
+  position: absolute;
+  font-size: .85em;
+  font-weight: 300;
+  bottom: 5px;
+  left: 5px;
+}
+
+.message-blue:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15px solid #A8DDFD;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  top: 0;
+  left: -15px;
+}
+
+.message-blue:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 17px solid #97C6E3;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  top: -1%;
+  left: -17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

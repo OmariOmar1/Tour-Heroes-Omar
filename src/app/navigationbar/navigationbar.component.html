@@ -14,10 +14,13 @@
 <div class="topnav">
 
 <nav >
-    <a class="active" routerLink="/dashboard">Dashboard</a>
-  <a type="button"routerLink="/heroes"> Heroes</a>
+    <a class="active" routerLink="/dashboard"  (click)="changePageStatus()">Dashboard</a>
+  <a type="button"routerLink="/heroes"  (click)="changePageStatus()"> Heroes</a>
+  <a routerLink="/" class="navBarTitle">TOUR HEROES GUIDE</a>
+
 
 </nav>
 </div>
 <!--search bar-->
 
+<!--ng-class="{active: location === '/'}"-->

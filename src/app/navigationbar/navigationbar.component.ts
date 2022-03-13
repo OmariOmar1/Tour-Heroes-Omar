@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-navigationbar',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationbarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public route:ActivatedRoute) { }
+url = "";
   ngOnInit(): void {
+    this.url= this.route.snapshot.params['CurrentRoute'];
+
   }
 
+
+  changePageStatus(){
+    console.log(this.url);
+  }
+
+
+
 }
+

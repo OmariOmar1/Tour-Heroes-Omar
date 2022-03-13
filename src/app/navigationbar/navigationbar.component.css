@@ -21,8 +21,13 @@ body {
   background-color: #ddd;
   color: black;
 }
-
-.topnav a.active {
-  background-color: #a458a2;
-  color: white;
+.onPage{
+  background: #a458a2;
 }
+
+.navBarTitle{
+  margin-left: 63%;
+  font-family: fantasy;}
+
+
+

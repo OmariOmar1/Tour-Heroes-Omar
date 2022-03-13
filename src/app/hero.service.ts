@@ -16,7 +16,7 @@ export class HeroService {
   private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(
-    private messageServiceinHeroService: MessageService,
+    private messageServiceInHeroService: MessageService,
     private http: HttpClient
   ) {
   }
@@ -50,7 +50,7 @@ export class HeroService {
 
 
   private log(message: string) {
-    this.messageServiceinHeroService.add(`HeroService: ${message}`);
+    this.messageServiceInHeroService.add(`HeroService: ${message}`);
   }
 
 
@@ -62,12 +62,17 @@ export class HeroService {
     };
   }
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
+
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
+
 
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
@@ -76,11 +81,6 @@ export class HeroService {
       catchError(this.handleError<Hero>('addHero'))
     );
   }
-
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
 
 
