@@ -1,26 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navigationbar',
   templateUrl: './navigationbar.component.html',
   styleUrls: ['./navigationbar.component.css']
 })
+
 export class NavigationbarComponent implements OnInit {
+  public currentPage=""
+         event$
 
-  constructor(public route:ActivatedRoute) { }
-url = "";
-  ngOnInit(): void {
-    this.url= this.route.snapshot.params['CurrentRoute'];
-
+  constructor(private location: Location) {
+      this.event$=location.onUrlChange((val) => {
+      this.currentPage=val.toString()})
   }
 
-
-  changePageStatus(){
-    console.log(this.url);
-  }
-
-
-
+  ngOnInit(): void {}
 }
+
 

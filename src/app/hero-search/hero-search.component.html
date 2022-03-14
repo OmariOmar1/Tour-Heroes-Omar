@@ -1,7 +1,5 @@
 <div id="search-component">
-
   <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search for your favourite Hero..." />
-
   <ul class="search-result">
     <li *ngFor="let hero of heroes$ | async" >
       <a routerLink="/detail/{{hero.id}}">

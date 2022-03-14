@@ -1,17 +1,16 @@
-
 /*setting up background to for the hero details  modal*/
-.heroDetailsCadBackground{
+.hero-details-dark-background{
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-
   background: rgba(0, 0, 0, 0.75);
   z-index: 900;
 }
+
 /*stlying the card*/
-.heroDetailsCard {
+.hero-details-card {
   width: 30%;
   margin: 10% auto;
   padding: 35px;
@@ -21,20 +20,15 @@
   transition: all 0.5s ;
   background: #3f525c;
   color: #e6e6e6;
-
-
 }
 
-
-.heroDetailsCard:hover {
+.hero-details-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   transition: all 0.5s ease-in;
   background: #3f525c;
-
 }
 
-
-.heroDetailsButton{
+.hero-details-card-buttons{
   font-size: 1em;
   padding: 10px;
   color: #617268;
@@ -45,22 +39,18 @@
   transition: all 0.2s ease-out;
 }
 
-
-
-.heroDetailsButton:hover{
+.hero-details-card-buttons:hover{
   background: #2a2a49;
 }
 
 button, input, select, textarea {
   font-family: cursive;
   color: #617268;
-
 }
 
-/*////////////////////////////////////////////////*/
-
+/*////////////adding media query////////////////////////////////////*/
 @media screen and (max-width: 700px){
-  .heroDetailsCard{
+  .hero-details-card{
     width: 70%;
   }
 }

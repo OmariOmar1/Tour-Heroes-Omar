@@ -1,50 +1,33 @@
 <h1>Hero Form</h1>
-
-
 <form #itemForm="ngForm" (ngSubmit)="onSubmit()" ng-submit="console.log('hello world')">
-
   <label for="name">Name</label>
-
-
   <input type="text" id="name" class="form-control" name="name" ngModel required />
-
   <div [hidden]="itemForm.valid || itemForm.pristine" class="alert alert-danger">
     *required field
   </div>
-
-
-
-
-
-<div [hidden]="!submitted">
-
-
+  <div [hidden]="!submitted">
     <form >
       <label for="age">Age</label>
       <input type="text" id="age" class="form-control" name="age"  [(ngModel)]="myage" ngModel required />
       <button type="button" class="btn btn-primary" (click)="send(myage)">Send</button>
     </form>
   </div>
-
-
-
-<div [hidden]="!submitted">
-  <h2>You submitted the following:</h2>
-  <div class="row">
-    <div class="col-xs-3">age</div>
-    <div class="col-xs-9">{{myage}}</div>
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">age</div>
+      <div class="col-xs-9">{{myage}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9">the</div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
   </div>
-  <div class="row">
-    <div class="col-xs-3">Alter Ego</div>
-    <div class="col-xs-9"></div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Power</div>
-    <div class="col-xs-9">the</div>
-  </div>
-  <br>
-  <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
-</div>
 </form>
-
 {{message}}

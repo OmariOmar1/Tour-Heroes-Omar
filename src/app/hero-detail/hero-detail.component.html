@@ -1,24 +1,12 @@
-<div class="heroDetailsCadBackground">
-<div *ngIf="hero" id="heroDetailsCard" class="heroDetailsCard">
-
-  <h2>{{hero.name | uppercase}}'S Details</h2>
-
-
-
-  <div class="info">
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" class="heroDetailsInput" [(ngModel)]="hero.name" placeholder="name">
+<div class="hero-details-dark-background">
+  <div *ngIf="hero" id="heroDetailsCard" class="hero-details-card">
+    <h2>{{hero.name | uppercase}}'S Details</h2>
+    <div class="info">
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" class="heroDetailsInput" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <h3><span>Id: </span>{{hero.id}}</h3>
+    <button class="hero-details-card-buttons" name="backButton" type="button" (click)="goBack()">Back</button>
+    <button class="hero-details-card-buttons" name="save" (click)="save()">save info</button>
   </div>
-  <h3><span>Id: </span>{{hero.id}}</h3>
-
-
-
-
-
-  <button class="heroDetailsButton" name="backButton" type="button" (click)="goBack()">Back</button>
-  <button class="heroDetailsButton" name="save" (click)="save()">save info</button>
-
-
-</div>
-
 </div>

@@ -1,34 +1,27 @@
-
-
-.messeges{
-display: flex;
-  flex-direction: column;
+.messages-component-container{
+  display:flex;
 }
 
-.message-blue {
-  transition: all .5s ease-in-out;
+/*messages style */
 
+.message {
   position: relative;
   margin:0 0 1% 0;
   padding: 10px;
-  background-color: #A8DDFD;
+  background-color: #97C6E3;
   width: 200px;
   height: 79px;
   text-align: left;
   font: 400 .9em 'Open Sans', sans-serif;
   border: 1px solid #97C6E3;
   border-radius: 10px;
-
+  animation: Load 300ms ease-in;
 }
-
-
 
 .message-content {
   padding: 0;
   margin: 0 0 3px;
 }
-
-
 
 .message-timestamp-left {
   position: absolute;
@@ -38,19 +31,7 @@ display: flex;
   left: 5px;
 }
 
-.message-blue:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 15px solid #A8DDFD;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  top: 0;
-  left: -15px;
-}
-
-.message-blue:before {
+.message:before {
   content: '';
   position: absolute;
   width: 0;
@@ -62,7 +43,8 @@ display: flex;
   left: -17px;
 }
 
-.crosssign {
+/*circle drawing*/
+.cross-sign {
   display: inline-block;
   width: 22px;
   height: 22px;
@@ -70,7 +52,7 @@ display: flex;
   transform: rotate(45deg);
 }
 
-.crosssign_circle {
+.cross-sign-circle {
   position: absolute;
   width: 22px;
   height: 22px;
@@ -80,8 +62,8 @@ display: flex;
   top: 0;
 }
 
-.crosssign_stem,
-.crosssign_stem2 {
+.cross-sign-first-line,
+.cross-sign-second-line {
   position: absolute;
   background-color: #fff;
   top: 50%;
@@ -89,20 +71,19 @@ display: flex;
   transform: translate(-50%, -50%);
 }
 
-.crosssign_stem {
+.cross-sign-first-line {
   width: 3px;
   height: 9px;
 }
 
-.crosssign_stem2 {
+.cross-sign-second-line {
   width: 9px;
   height: 3px;
 }
 
-
-
-
-
+.cross-sign-first-line :hover{
+  background-color: black;
+}
 
 
 

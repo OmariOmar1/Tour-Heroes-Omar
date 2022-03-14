@@ -1,14 +1,10 @@
-body {
-  margin: 0;
-  font-family:cursive;
-}
-
-.topnav {
+.top-nav {
   overflow: hidden;
   background-color: #3f525c;
+  animation: Load 300ms ease-in;
 }
 
-.topnav a {
+.top-nav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -17,17 +13,13 @@ body {
   font-size: 17px;
 }
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-.onPage{
-  background: #a458a2;
-}
-
-.navBarTitle{
+.navbar-title{
   margin-left: 63%;
   font-family: fantasy;}
+
+.navbar-active-page{
+  background-color: #a458a2;
+}
 
 
 

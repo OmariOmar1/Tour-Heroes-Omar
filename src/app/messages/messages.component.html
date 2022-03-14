@@ -1,24 +1,21 @@
-<div>
-
-<span class="crosssign" (click)="MessageServiceInMessagesComponent.clear()">
-  <div class="crosssign_circle"></div>
-  <div class="crosssign_stem"></div>
-  <div class="crosssign_stem2"></div>
-</span>
-</div>
-
-
-<!--START OF MESSAGES-->
-<div class="messeges">
-<h2>Messages:</h2>
-<div *ngFor="let message of MessageServiceInMessagesComponent.messages">
-<div class="container" *ngIf="MessageServiceInMessagesComponent.messages.length" >
-  <div class="message-blue">
-    <p class="message-content" >{{message}}</p>
-    <div class="message-timestamp-left">SMS 13:37</div>
+<div class="messages-component-container">
+  <div class="messagesDelete">
+      <span class="cross-sign" (click)="MessageServiceInMessagesComponent.clear()">
+         <div class="cross-sign-circle"></div>
+         <div class="cross-sign-first-line"></div>
+         <div class="cross-sign-second-line"></div>
+      </span>
+  </div>
+  <!--START OF MESSAGES-->
+  <div class="messeges">
+    <h2>Messages:</h2>
+    <div *ngFor="let message of MessageServiceInMessagesComponent.messages">
+      <div class="container" *ngIf="MessageServiceInMessagesComponent.messages.length" >
+        <div class="message">
+          <p class="message-content" >{{message}}</p>
+          <div class="message-timestamp-left">SMS 13:37</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-</div>
-
-

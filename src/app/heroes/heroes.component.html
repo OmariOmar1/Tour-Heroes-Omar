@@ -1,69 +1,40 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-
 <div class="container">
-
-  <div>
-
-    <div >
-<h2>My Heroes</h2>
+      <h2>My Heroes</h2>
+    <div id="searchComponent" >
+      <app-hero-search></app-hero-search>
     </div>
-<div id="searchComponent" >
-  <app-hero-search></app-hero-search>
-</div>
+  <div class="list-group">
+    <a  class="list-group-item list-group-item-action list-title">
+      <h2>
+        Heroes List
+      </h2>
+    </a>
+    <div *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action listTextContent">
+        <span class="heroName"> {{hero.name}} </span>
+        <span class="heroId">Hero Number:{{hero.id}}</span>
+      </a>
+      <button type="button" class="btn delete-hero-button" title="delete hero"
+              (click)="delete(hero)">Delete Hero</button>
+    </div>
   </div>
-
-<div class="list-group">
-  <a  class="list-group-item list-group-item-action listTitle">
-   <h2>
-    Heroes List
-   </h2>
-  </a>
-
-  <div *ngFor="let hero of heroes">
-
-  <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action listTextContent">
-    <span class="heroName"> {{hero.name}} </span>
-    <span class="heroId">Hero Number:{{hero.id}}</span>
- </a>
-  <button type="button" class="btn deleteHeroButton" title="delete hero"
-          (click)="delete(hero)">Delete Hero</button>
-  </div>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<ul class="heroes">-->
-<!--  <li *ngFor="let hero of heroes">-->
-<!--    <a routerLink="/detail/{{hero.id}}">-->
-<!--      <span class="badge">{{hero.id}}</span> {{hero.name}}-->
-<!--    </a>-->
-<!--    <button type="button" class="delete" title="delete hero"-->
-<!--            (click)="delete(hero)">x</button>-->
-<!--  </li>-->
-<!--  <div>-->
-<!--    <label for="new-hero">Hero name: </label>-->
-<!--    <input id="new-hero" #heroName />-->
-
-<!--    &lt;!&ndash; (click) passes input value to add() and then clears the input &ndash;&gt;-->
-<!--    <button type="button" class="add-button" (click)="add(heroName.value); ">-->
-
-<!--      Add hero-->
-<!--    </button>-->
-<!--  </div>-->
-
-<!--</ul>-->
-
-<!--listing heroes start-->
+  <!--<ul class="heroes">-->
+  <!--  <li *ngFor="let hero of heroes">-->
+  <!--    <a routerLink="/detail/{{hero.id}}">-->
+  <!--      <span class="badge">{{hero.id}}</span> {{hero.name}}-->
+  <!--    </a>-->
+  <!--    <button type="button" class="delete" title="delete hero"-->
+  <!--            (click)="delete(hero)">x</button>-->
+  <!--  </li>-->
+  <!--  <div>-->
+  <!--    <label for="new-hero">Hero name: </label>-->
+  <!--    <input id="new-hero" #heroName />-->
+  <!--    &lt;!&ndash; (click) passes input value to add() and then clears the input &ndash;&gt;-->
+  <!--    <button type="button" class="add-button" (click)="add(heroName.value); ">-->
+  <!--      Add hero-->
+  <!--    </button>-->
+  <!--  </div>-->
+  <!--</ul>-->
+  <!--listing heroes start-->

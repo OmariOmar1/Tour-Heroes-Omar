@@ -1,26 +1,9 @@
-<!--<ul>-->
-<!--<nav>-->
-<!--  <li><a routerLink="/dashboard">Dashboard </a></li>-->
-<!--  <li><a routerLink="/heroes"> Heroes</a></li>-->
-<!--  <li><a routerLink="/HeroForm">Forms</a></li>-->
-<!--  <li><a routerLink="/HeroForm">Yout</a></li>-->
-<!--</nav>-->
-<!--</ul>-->
-
-
-
-
-
-<div class="topnav">
-
-<nav >
-    <a class="active" routerLink="/dashboard"  (click)="changePageStatus()">Dashboard</a>
-  <a type="button"routerLink="/heroes"  (click)="changePageStatus()"> Heroes</a>
-  <a routerLink="/" class="navBarTitle">TOUR HEROES GUIDE</a>
-
-
-</nav>
+<!--navigation bar start-->
+<div class="top-nav">
+  <nav >
+    <a class="active" routerLink="/dashboard"  [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">Dashboard</a>
+    <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}"> Heroes</a>
+    <a routerLink="/" class="navbar-title">TOUR HEROES GUIDE</a>
+  </nav>
 </div>
-<!--search bar-->
-
-<!--ng-class="{active: location === '/'}"-->
+<!--navigation bar End-->
