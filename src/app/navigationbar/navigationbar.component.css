@@ -2,9 +2,13 @@
   overflow: hidden;
   background-color: #3f525c;
   animation: Load 300ms ease-in;
+  position: sticky;
+  top: 0;
+  z-index: 9000;
 }
 
 .top-nav a {
+  display: block;
   float: left;
   color: #f2f2f2;
   text-align: center;
