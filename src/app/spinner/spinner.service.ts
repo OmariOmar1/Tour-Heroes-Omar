@@ -13,24 +13,20 @@ private spinner$ = new BehaviorSubject<string>('')
 
   getSpinnerObserver(): Observable<string>{
   return this.spinner$.asObservable()
-  }
+}
 
   requestStarted(){
-if(this.count == 1){
   this.spinner$.next('start')
-  }
-}
-requestEnded() {
-  if (this.count === 0 || --this.count === 0) {
-    this.spinner$.next('stop');
-  }
 }
 
+requestEnded() {
+    this.spinner$.next('stop');
+}
+// in case any errors that happen in the fututre with the reset spinner
 resetSpinner(){
   this.count=0;
   this.spinner$.next('stop')
 }
-
 }
 
 

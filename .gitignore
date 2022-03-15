@@ -44,3 +44,6 @@ Thumbs.db
 /.json
 *.json
 
+
+/package.json
+/package.json

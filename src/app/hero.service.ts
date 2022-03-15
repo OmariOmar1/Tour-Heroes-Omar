@@ -4,9 +4,7 @@ import {Observable,of} from "rxjs";
 import {MessageService} from "./message.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-
-
-
+import {SpinnerService} from "./spinner/spinner.service";
 
 
 @Injectable({
@@ -14,45 +12,43 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class HeroService {
   private heroesUrl = 'api/heroes';  // URL to web api
-
+/*injecting http for getting heroes from client , message servise for sending
+ log messages every time we do something,spinner sevices to add spinner service everty time we use the api */
   constructor(
     private messageServiceInHeroService: MessageService,
-    private http: HttpClient
+    private http: HttpClient,
+    private spinnerService:SpinnerService
   ) {
-  }
 
+  }
 
   getHeroes(): Observable<Hero[]> {
     this.log("going to the http client");
-
     let fetchedDataFrom: Observable<Hero[]> = this.http.get<Hero[]>(this.heroesUrl);
-
-    return fetchedDataFrom
-
-      .pipe(
+    this.spinnerService.requestStarted()
+    return fetchedDataFrom.pipe(
         catchError(this.handleError<Hero[]>(`getHeroes`, [])),
-        tap(_ => this.log('fetched heroes'))
-      );
+        tap(
+          _ => this.spinnerService.requestEnded(),
+          )
+    );
   }
-
 
   //hero details
   /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
+    this.spinnerService.requestStarted()
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
+      tap(_ => this.spinnerService.requestEnded()),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
-
-
   }
-
 
   private log(message: string) {
     this.messageServiceInHeroService.add(`HeroService: ${message}`);
   }
-
 
   private handleError<T>(operation = `operation`, result?: T) {
     return (error: any): Observable<T> => {
@@ -73,7 +69,6 @@ export class HeroService {
     );
   }
 
-
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
@@ -81,9 +76,6 @@ export class HeroService {
       catchError(this.handleError<Hero>('addHero'))
     );
   }
-
-
-
 
   /** DELETE: delete the hero from the server */
   deleteHero(id: number): Observable<Hero> {
