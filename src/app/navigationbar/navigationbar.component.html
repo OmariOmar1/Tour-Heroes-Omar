@@ -1,10 +1,21 @@
-<!--navigation bar start-->
-<div class="top-nav">
-  <nav >
-    <img src="assets/hero.default.png" class="navbar-profile-picture">
+<div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+      <img src="assets/hero.default.png" class="navbar-profile-picture">
+      <a routerLink="/" class="navbar-title">TOUR HEROES GUIDE</a>
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <div class="nav-links">
     <a class="active" routerLink="/dashboard"  [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">Dashboard</a>
     <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}"> Heroes</a>
-    <a routerLink="/" class="navbar-title">TOUR HEROES GUIDE</a>
-  </nav>
+  </div>
 </div>
-<!--navigation bar End-->
