@@ -98,6 +98,7 @@ ul li:hover {
   background-color: white;
   margin: 6px 0;
   transition: 0.4s;
+  border-radius: 11px;
 }
 
 .open .bar1 {
