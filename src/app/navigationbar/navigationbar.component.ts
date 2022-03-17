@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,11 +9,16 @@ import { Location } from '@angular/common';
 
 export class NavigationbarComponent implements OnInit {
   public currentPage=""
-         event$
+  public event$
+  public isMenuShowing$:Boolean=false
 
-  constructor(private location: Location) {
+  constructor(private location: Location){
       this.event$=location.onUrlChange((val) => {
       this.currentPage=val.toString()})
+  }
+
+  toggleShowMenu(){
+    this.isMenuShowing$=(!this.isMenuShowing$)
   }
 
   ngOnInit(): void {}

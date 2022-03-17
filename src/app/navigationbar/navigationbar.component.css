@@ -1,105 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .navbar-active-page{
-  background-color: #a458a2;
+  background-color: #5e435d;
+  border-radius: 5px;
+  padding: 5px 8px;
 }
 
-.navbar-profile-picture{
-  float: left;
+.profile-picture-glowing{
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  width: 40px;
+  border: 2px solid #cddc39;
+  filter: drop-shadow(0 0 8px #ff5722);
+  margin-bottom: 10px;
 }
 
-.nav {
+body {
+  background-color: #353836;
+  color: white;
+  font-family: sans-serif;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header {
+  padding: 0 20px;
+  background: rgb(0,0,0);
+  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(188,60,192,1) 35%, rgba(0,0,0,1) 64%, rgba(217,18,199,1) 82%, rgba(0,0,0,1) 90%);
   height: 50px;
-  width: 100%;
-  background-color: var(--mainColor1);
-  position: relative;
-}
-
-.nav > .nav-header {
-  display: inline;
-}
-
-.nav > .nav-header > .nav-title {
-  display: inline-block;
-  font-size: 22px;
-  color: #ffffff;
-  padding: 10px 10px 10px 10px;
-}
-.nav > .nav-header >.nav-title > a{
-  color: #a458a2;
-  font: large serif;
-  text-decoration: none;
-}
-
-.nav > .nav-btn {
-  display: none;
-}
-
-.nav > .nav-links {
-  display: inline;
-  float: right;
-  font-size: 18px;
-}
-
-.nav > .nav-links > a {
-  display: inline-block;
-  padding: 13px 10px 11px 10px;
-  text-decoration: none;
-  color: #efefef;
-}
-
-.nav > #nav-check {
-  display: none;
-}
-
-@media (max-width:600px) {
-  .dropdown .dropbtn{
   display: flex;
-  }
-
-  .nav > .nav-btn {
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-
-  }
-  .nav > .nav-btn > label {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    padding: 13px;
-  }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #eee;
-  }
-  .nav > .nav-links {
-    position: absolute;
-    display: block;
-    width: 100%;
-    background-color: #333;
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: 0px;
-    z-index: 9000;
-  }
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
-  }
-  .nav > #nav-check:not(:checked) ~ .nav-links {
-    height: 0px;
-  }
-  .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-  }
+  justify-content: space-between;
 }
 
+#brand {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
 
+#brand a {
+  color: var(--mainColor);
+  font-family: 'Permanent Marker', cursive;
+}
+
+ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul a {
+  color: white;
+}
+
+ul li {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+ul li:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#login,
+#dashBoard {
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+
+#login {
+  border: 1px solid #498afb;
+}
+
+#dashBoard a {
+  color: #ff3860;
+}
+
+#login a {
+  color: #498afb;
+}
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+#hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 50px;
+  background: rgb(0,0,0);
+  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(188,60,192,1) 35%, rgba(0,0,0,1) 64%, rgba(217,18,199,1) 82%, rgba(0,0,0,1) 90%);
+  animation: slideRight 600ms ease-in-out;
+}
+
+.mobile-menu {
+  display: none;
+  background-color: var(--mainColor1);
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+  z-index: 2;
+}
+
+.mobile-menu li a{
+  margintop: 10px;
+  text-align: center;
+
+}
+
+@media only screen and (max-width: 600px) {
+  header nav {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+}

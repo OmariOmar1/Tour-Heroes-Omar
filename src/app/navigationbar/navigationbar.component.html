@@ -1,21 +1,24 @@
-<div class="nav">
-  <input type="checkbox" id="nav-check">
-  <div class="nav-header">
-    <div class="nav-title">
-      <img src="assets/hero.default.png" class="navbar-profile-picture">
-      <a routerLink="/" class="navbar-title">TOUR HEROES GUIDE</a>
-    </div>
+<header>
+  <nav>
+    <ul>
+      <li><a id="dashBoard" routerLink="/dashboard"  [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">Dashboard</a>
+      </li>
+      <li> <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}"> Heroes</a></li>
+    </ul>
+  </nav>
+  <div id="hamburger-icon" (click)="toggleShowMenu()" [ngClass]="{'open': true==isMenuShowing$}">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+    <ul class="mobile-menu">
+      <img src="assets/hero.default.png" class="profile-picture-glowing">
+      <li [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li [ngClass]="{'navbar-active-page':currentPage==='/heroes'}">
+        <a routerLink="/heroes" > Heroes</a>
+      </li>
+    </ul>
   </div>
-  <div class="nav-btn">
-    <label for="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </div>
-
-  <div class="nav-links">
-    <a class="active" routerLink="/dashboard"  [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">Dashboard</a>
-    <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}"> Heroes</a>
-  </div>
-</div>
+  <div id="brand"><a href="/">Tour Heroes</a></div>
+</header>

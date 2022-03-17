@@ -47,9 +47,8 @@ button, input, select, textarea {
   font-family: cursive;
   color: #617268;
 }
-
 /*////////////adding media query////////////////////////////////////*/
-@media screen and (max-width: 700px){
+@media screen and (max-width: 600px){
   .hero-details-card{
     width: 400px;
   }
