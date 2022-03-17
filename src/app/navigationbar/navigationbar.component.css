@@ -94,7 +94,7 @@ ul li:hover {
 
 #hamburger-icon div {
   width: 35px;
-  height: 3px;
+  height: 4px;
   background-color: white;
   margin: 6px 0;
   transition: 0.4s;
@@ -103,7 +103,7 @@ ul li:hover {
 
 .open .bar1 {
   -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-  transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 8px);
 }
 
 .open .bar2 {
