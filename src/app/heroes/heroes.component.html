@@ -1,22 +1,22 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 <div class="container">
-      <h2>My Heroes</h2>
-    <div id="searchComponent" >
-      <app-hero-search></app-hero-search>
-    </div>
-  <div class="list-group">
-    <a  class="list-group-item list-group-item-action list-title">
-      <h2>
-        Heroes List
-      </h2>
-    </a>
-    <div *ngFor="let hero of heroes">
-      <a routerLink="/detail/{{hero.id}}"  class="list-group-item list-group-item-action listTextContent">
-        <span class="heroName"> {{hero.name}} </span>
-        <span class="heroId">Hero Number:{{hero.id}}</span>
-      </a>
-      <button type="button" class="btn delete-hero-button" title="delete hero"
-              (click)="delete(hero)">Delete Hero</button>
+  <h2>My Heroes</h2>
+  <div id="searchComponent">
+    <app-hero-search></app-hero-search>
+  </div>
+  <div>
+    <h2>Heroes List</h2>
+    <div class="hero-card-container">
+      <div class="hero-card" *ngFor="let hero of heroes">
+        <img class="hero-card__img" src="../../assets/hero.default.png" alt="">
+        <div class="hero-card__info">
+          <span class="hero-card__id">Hero Number:{{hero.id}}</span>
+          <h3 routerLink="/detail/{{hero.id}}" class="hero-card__name">{{hero.name}}</h3>
+          <p class="hero-card__desc">Lorem ipsum dolor, sit amet amet amet elit. amet, doloremque sad dad is looking in
+            here.</p>
+          <button type="button" class="hero-card__btn btn" title="delete hero" (click)="delete(hero)">Delete
+            Hero</button>
+        </div>
+      </div>
     </div>
   </div>
   <label for="new-hero">Hero name: </label>-->

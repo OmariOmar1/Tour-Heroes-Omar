@@ -12,10 +12,10 @@
     <div class="bar3"></div>
     <ul class="mobile-menu">
       <img src="assets/hero.default.png" class="profile-picture-glowing">
-      <li [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">
+      <li class="mobile-menu__link" [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">
         <a routerLink="/dashboard">Dashboard</a>
       </li>
-      <li [ngClass]="{'navbar-active-page':currentPage==='/heroes'}">
+      <li class="mobile-menu__link" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}">
         <a routerLink="/heroes" > Heroes</a>
       </li>
     </ul>

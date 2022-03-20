@@ -54,19 +54,8 @@
   border-radius: 4px 0 0 4px;
 }
 
-.delete-hero-button{
-  color: #fff;
-  background-color: #3f525c;
-  width: 100%;
-}
-.delete-hero-button:hover{
-  color: #e6e6e6;
-  transition: 0.2s;
-  background-color: var(--mainColor);
-}
-
 .list-title{
-background: var(--mainColor);
+  background: var(--mainColor);
   color: #ffffff;
 }
 
@@ -80,12 +69,79 @@ background: var(--mainColor);
   font-size: large;
 }
 
-.heroName{
-  margin-right: 50%;
-  border-bottom: 3px solid var(--mainColor);
-}
-
 h2{
   text-align: center;
+  margin-bottom: 18px;
 }
 
+.hero-card-container {
+  display: grid;
+  grid-template-columns:1fr;
+  gap: 20px;
+}
+
+.hero-card {
+  transition: .3s;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.hero-card__info{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-card img{
+  width: 100%;
+}
+
+.hero-card__name{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hero-card__btn{
+  width: 100%;
+}
+
+.hero-card__id {
+  background: rgba(0,0,0,0.1);
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  display: inline-block;
+  width: max-content;
+}
+
+.hero-card__desc{
+  color: grey;
+  font-size: 14px;
+}
+
+.hero-card:hover {
+  box-shadow: 0 0 20px 0 rgba(164, 88, 162, .2);
+  transform: translate(0, -15px);
+}
+
+@media (min-width: 576px){
+
+  .hero-card-container {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media (min-width: 768px){
+  .hero-card-container {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media (min-width: 992px){
+  .hero-card-container {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
