@@ -12,5 +12,4 @@ export class MessagesComponent implements OnInit {
   constructor(public MessageServiceInMessagesComponent:MessageService) { }
 
   ngOnInit(): void {}
-
 }

@@ -3,7 +3,6 @@
 }
 
 /*messages style */
-
 .message {
   position: relative;
   margin:0 0 1% 0;
@@ -84,13 +83,3 @@
 .cross-sign-first-line :hover{
   background-color: black;
 }
-
-
-
-
-
-
-
-
-
-

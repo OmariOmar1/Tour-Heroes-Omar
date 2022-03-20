@@ -22,25 +22,9 @@
   color: #e6e6e6;
 }
 
-.hero-details-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  transition: all 0.5s ease-in;
-  background: #3f525c;
-}
-
-.hero-details-card-buttons{
-  font-size: 1em;
-  padding: 10px;
-  color: #617268;
-  border: 2px solid #2a2a49;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-}
-
-.hero-details-card-buttons:hover{
-  background: #2a2a49;
+.btn{
+  margin:3px;
+  color:whitesmoke ;
 }
 
 button, input, select, textarea {

@@ -7,13 +7,13 @@
     <h2>Heroes List</h2>
     <div class="hero-card-container">
       <div class="hero-card" *ngFor="let hero of heroes">
-        <img class="hero-card__img" src="../../assets/hero.default.png" alt="">
-        <div class="hero-card__info">
-          <span class="hero-card__id">Hero Number:{{hero.id}}</span>
-          <h3 routerLink="/detail/{{hero.id}}" class="hero-card__name">{{hero.name}}</h3>
-          <p class="hero-card__desc">Lorem ipsum dolor, sit amet amet amet elit. amet, doloremque sad dad is looking in
+        <img  src="../../assets/hero.default.png" alt="">
+        <div class="hero-card-info">
+          <span class="hero-card-id">Hero Number:{{hero.id}}</span>
+          <h3 routerLink="/detail/{{hero.id}}" class="hero-card-name">{{hero.name}}</h3>
+          <p class="hero-card-description">Lorem ipsum dolor, sit amet amet amet elit. amet, doloremque sad dad is looking in
             here.</p>
-          <button type="button" class="hero-card__btn btn" title="delete hero" (click)="delete(hero)">Delete
+          <button type="button" class="hero-card-btn btn" title="delete hero" (click)="delete(hero)">Delete
             Hero</button>
         </div>
       </div>

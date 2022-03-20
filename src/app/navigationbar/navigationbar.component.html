@@ -1,9 +1,9 @@
 <header>
   <nav>
     <ul>
-      <li><a id="dashBoard" routerLink="/dashboard"  [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">Dashboard</a>
+      <li><a id="dashBoard" routerLink="/dashboard"  [ngClass]="{'navbar-active-page': currentPage==='/dashboard'}">Dashboard</a>
       </li>
-      <li> <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}"> Heroes</a></li>
+      <li> <a type="button"routerLink="/heroes" [ngClass]="{'navbar-active-page': currentPage==='/heroes'}"> Heroes</a></li>
     </ul>
   </nav>
   <div id="hamburger-icon" (click)="toggleShowMenu()" [ngClass]="{'open': true==isMenuShowing$}">
@@ -12,10 +12,10 @@
     <div class="bar3"></div>
     <ul class="mobile-menu">
       <img src="assets/hero.default.png" class="profile-picture-glowing">
-      <li class="mobile-menu__link" [ngClass]="{'navbar-active-page':currentPage==='/dashboard'}">
+      <li class="mobile-menu-link" [ngClass]="{'navbar-active-page': currentPage==='/dashboard'}">
         <a routerLink="/dashboard">Dashboard</a>
       </li>
-      <li class="mobile-menu__link" [ngClass]="{'navbar-active-page':currentPage==='/heroes'}">
+      <li class="mobile-menu-link" [ngClass]="{'navbar-active-page': currentPage==='/heroes'}">
         <a routerLink="/heroes" > Heroes</a>
       </li>
     </ul>

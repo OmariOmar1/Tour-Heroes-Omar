@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 export class NavigationbarComponent implements OnInit {
   public currentPage=""
   public event$
-  public isMenuShowing$:Boolean=false
+  public isMenuShowing$: boolean=false
 
   constructor(private location: Location){
       this.event$=location.onUrlChange((val) => {

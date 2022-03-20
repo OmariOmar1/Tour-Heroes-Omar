@@ -76,18 +76,18 @@ h2{
 
 .hero-card-container {
   display: grid;
-  grid-template-columns:1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 .hero-card {
   transition: .3s;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid var(--mainColorDark);
   border-radius: 6px;
   overflow: hidden;
 }
 
-.hero-card__info{
+.hero-card-info{
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -98,16 +98,16 @@ h2{
   width: 100%;
 }
 
-.hero-card__name{
+.hero-card-name{
   font-size: 20px;
   cursor: pointer;
 }
 
-.hero-card__btn{
+.hero-card-btn{
   width: 100%;
 }
 
-.hero-card__id {
+.hero-card-id {
   background: rgba(0,0,0,0.1);
   padding: 5px 10px;
   border-radius: 16px;
@@ -116,7 +116,7 @@ h2{
   width: max-content;
 }
 
-.hero-card__desc{
+.hero-card-description{
   color: grey;
   font-size: 14px;
 }
