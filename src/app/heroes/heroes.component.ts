@@ -11,11 +11,14 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  heroes2:Hero[]=[]
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
+  this.heroService.getHeroes2()
+      .subscribe(data =>this.heroes2=data);
   }
 
   add(name: string): void {

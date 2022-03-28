@@ -12,15 +12,16 @@ import {SpinnerService} from "./spinner/spinner.service";
 })
 export class HeroService {
   private heroesUrl = 'api/heroes';  // URL to web api
-/*injecting http for getting heroes from client , message servise for sending
- log messages every time we do something,spinner sevices to add spinner service everty time we use the api */
+  private heroJsonUrl='http://localhost/tour-heroes-php/tour-heroes-data-json.php';//my php file
+
+/*injecting http for getting heroes from client , message service for sending
+ log messages every time we do something,spinner services to add spinner service every time we use the api */
   constructor(
     private messageServiceInHeroService: MessageService,
     private http: HttpClient,
     private spinnerService:SpinnerService
-  ) {
 
-  }
+  ){}
 
   getHeroes(): Observable<Hero[]> {
     this.log("going to the http client");
@@ -28,13 +29,14 @@ export class HeroService {
     this.spinnerService.requestStarted()
     return fetchedDataFrom.pipe(
         catchError(this.handleError<Hero[]>(`getHeroes`, [])),
-        tap(
-          _ => this.spinnerService.requestEnded(),
-          )
+        tap(_ => this.spinnerService.requestEnded(),)
     );
   }
 
-  //hero details
+  getHeroes2(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroJsonUrl)
+  }
+
   /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
     this.spinnerService.requestStarted()
@@ -103,4 +105,6 @@ export class HeroService {
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
+
+
 }
