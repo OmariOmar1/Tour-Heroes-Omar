@@ -1,11 +1,11 @@
 <div class="hero-details-dark-background">
   <div *ngIf="hero" id="heroDetailsCard" class="hero-details-card">
-    <h2>{{hero.name | uppercase}}'S Details</h2>
+    <h2>{{hero.HeroFirstName | uppercase}}'S Details</h2>
     <div class="info">
       <label for="hero-name">Hero name: </label>
-      <input id="hero-name" class="hero-details-input" [(ngModel)]="hero.name" placeholder="name">
+      <input id="hero-name" class="hero-details-input" [(ngModel)]="hero.HeroFirstName" placeholder="name">
     </div>
-    <h3><span>Id: </span>{{hero.id}}</h3>
+    <h3><span>Id: </span>{{hero.HeroId}}</h3>
     <button class="btn" name="backButton" type="button" (click)="goBack()">Back</button>
     <button class="btn" name="save" (click)="save()">save info</button>
   </div>

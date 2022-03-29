@@ -4,15 +4,14 @@
     <app-hero-search></app-hero-search>
   </div>
   <div>
-    <h2>Heroes List</h2>
+    <h2>Our Recent Heroes!</h2>
     <div class="hero-card-container">
-      <div class="hero-card" *ngFor="let hero of heroes">
+      <div class="hero-card" *ngFor="let hero of heroes.reverse()">
         <img  src="../../assets/hero.default.png" alt="">
         <div class="hero-card-info">
-          <span class="hero-card-id">Hero Number:{{hero.id}}</span>
-          <h3 routerLink="/detail/{{hero.id}}" class="hero-card-name">{{hero.name}}</h3>
-          <p class="hero-card-description">Lorem ipsum dolor, sit amet amet amet elit. amet, doloremque sad dad is looking in
-            here.</p>
+          <span class="hero-card-id">Hero Number:{{hero.HeroId}}</span>
+          <h3 routerLink="/detail/{{hero.HeroId}}" class="hero-card-name">{{hero.HeroFirstName}}</h3>
+          <p class="hero-card-description">{{hero.HeroDescription}}</p>
           <button type="button" class="hero-card-btn btn" title="delete hero" (click)="delete(hero)">Delete
             Hero</button>
         </div>
@@ -26,8 +25,3 @@
     Add hero
   </button>
 </div>
-
-<div *ngFor="let hero1 of heroes2">
-  {{hero1}}
-</div>
-

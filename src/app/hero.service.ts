@@ -11,8 +11,7 @@ import {SpinnerService} from "./spinner/spinner.service";
   providedIn: 'root'
 })
 export class HeroService {
-  private heroesUrl = 'api/heroes';  // URL to web api
-  private heroJsonUrl='http://localhost/tour-heroes-php/tour-heroes-data-json.php';//my php file
+  private heroesUrl = 'http://localhost/tour-heroes-php/tour-heroes-data-json.php';  // URL to php json
 
 /*injecting http for getting heroes from client , message service for sending
  log messages every time we do something,spinner services to add spinner service every time we use the api */
@@ -29,13 +28,10 @@ export class HeroService {
     this.spinnerService.requestStarted()
     return fetchedDataFrom.pipe(
         catchError(this.handleError<Hero[]>(`getHeroes`, [])),
-        tap(_ => this.spinnerService.requestEnded(),)
+        tap(_ => this.spinnerService.requestEnded())
     );
   }
 
-  getHeroes2(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroJsonUrl)
-  }
 
   /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
@@ -66,7 +62,7 @@ export class HeroService {
 
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      tap(_ => this.log(`updated hero id=${hero.HeroId}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -74,7 +70,7 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.HeroId}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }

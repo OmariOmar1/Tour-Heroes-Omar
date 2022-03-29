@@ -2,8 +2,8 @@
   <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search for your favourite Hero..." />
   <ul class="search-result">
     <li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}">
-        {{hero.name}}
+      <a routerLink="/detail/{{hero.HeroId}}">
+        {{hero.HeroFirstName}}
       </a>
     </li>
   </ul>

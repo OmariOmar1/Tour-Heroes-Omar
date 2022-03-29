@@ -1,12 +1,12 @@
 <h2>Top Heroes!</h2>
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
-     routerLink="/detail/{{hero.id}}">
+     routerLink="/detail/{{hero.HeroId}}">
    <span class="heroDashboardImg">
    <img src="assets/hero.default.png" style="width: inherit;">
    </span>
     <span>
-   {{hero.name}}
+   {{hero.HeroFirstName}}
    </span>
   </a>
 </div>

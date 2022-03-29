@@ -1,11 +1,9 @@
 export class Hero {
 
   constructor(
-    public id: number,
-    public name: string,
-    public power: string,
-    public alterEgo?: string,
-    public bestFriend?: string
+    public HeroId: number,
+    public HeroFirstName: string,
+    public HeroDescription: string
   ) {  }
 
 }
