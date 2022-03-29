@@ -4,6 +4,5 @@ export class Hero {
     public HeroId: number,
     public HeroFirstName: string,
     public HeroDescription: string
-  ) {  }
-
+  ) {}
 }
