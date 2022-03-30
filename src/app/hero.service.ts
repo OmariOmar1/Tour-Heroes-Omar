@@ -11,7 +11,8 @@ import {SpinnerService} from "./spinner/spinner.service";
   providedIn: 'root'
 })
 export class HeroService {
-  private heroesUrl = 'http://localhost/tour-heroes-php/tour-heroes-data-json.php';  // URL to php json
+  private heroesUrl = 'http://localhost/tour-heroes-php/tour-heroes-data-json.php';// URL to php json
+  private heroesUrlPost='http://localhost/tour-heroes-php/addDataToTourHeroes.php';
 
 /*injecting http for getting heroes from client , message service for sending
  log messages every time we do something,spinner services to add spinner service every time we use the api */
@@ -56,7 +57,8 @@ export class HeroService {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders(
+      {'Content-Type': 'application/json',}).set('Authorization','auth-token')
   }
 
   updateHero(hero: Hero): Observable<any> {
@@ -68,10 +70,7 @@ export class HeroService {
 
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.HeroId}`)),
-      catchError(this.handleError<Hero>('addHero'))
-    );
+    return this.http.post<Hero>(this.heroesUrlPost, hero.HeroFirstName, this.httpOptions)
   }
 
   /** DELETE: delete the hero from the server */

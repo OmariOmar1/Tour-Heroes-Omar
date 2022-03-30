@@ -22,7 +22,7 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getHero();
   }
-
+// TODO: FIX THIS
   getHero(): void {
     //get the id from the browser link
     const id = Number(this.route.snapshot.paramMap.get('id'));
