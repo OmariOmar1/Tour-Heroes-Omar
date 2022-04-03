@@ -23,6 +23,14 @@ export class HeroService {
 
   ){}
 
+  httpOptionsPost = {
+    headers: new HttpHeaders(
+      {
+        'content-type':'multipart/form-data'
+      }
+    )
+  }
+
   getHeroes(): Observable<Hero[]> {
     this.log("going to the http client");
     let fetchedDataFrom: Observable<Hero[]> = this.http.get<Hero[]>(this.heroesUrl);
@@ -44,6 +52,30 @@ export class HeroService {
     );
   }
 
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero).pipe(
+      tap(_ => this.log(`updated hero id=${hero.HeroId}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrlPost, hero).pipe(
+      tap(_=>console.log("Hero added"))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Hero>(url, this.httpOptionsPost).pipe(
+      tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Hero>('deleteHero'))
+    );
+  }
+
   private log(message: string) {
     this.messageServiceInHeroService.add(`HeroService: ${message}`);
   }
@@ -54,33 +86,6 @@ export class HeroService {
       this.log(`${operation} failed: ${error.message}`)
       return of(result as T)
     };
-  }
-
-  httpOptions = {
-    headers: new HttpHeaders(
-      {'Content-Type': 'application/json',}).set('Authorization','auth-token')
-  }
-
-  updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.HeroId}`)),
-      catchError(this.handleError<any>('updateHero'))
-    );
-  }
-
-  /** POST: add a new hero to the server */
-  addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrlPost, hero.HeroFirstName, this.httpOptions)
-  }
-
-  /** DELETE: delete the hero from the server */
-  deleteHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Hero>('deleteHero'))
-    );
   }
 
   // HERO SEARCH METHOD

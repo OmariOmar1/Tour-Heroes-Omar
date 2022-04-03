@@ -1,7 +1,12 @@
 <div class="container">
+  <label for="HeroName">Hero name: </label>-->
+  <input id="HeroName" #HeroFirstName >
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(HeroFirstName.value); ">
+    Add hero
+  </button>
   <h2>My Heroes</h2>
   <div id="searchComponent">
-    <app-hero-search></app-hero-search>
   </div>
   <div>
     <h2>Our Recent Heroes!</h2>
@@ -18,10 +23,4 @@
       </div>
     </div>
   </div>
-  <label for="new-hero">Hero name: </label>-->
-  <input id="new-hero" #heroName />
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(heroName.value); ">
-    Add hero
-  </button>
 </div>
