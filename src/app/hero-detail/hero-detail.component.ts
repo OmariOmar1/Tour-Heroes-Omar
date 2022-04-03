@@ -11,7 +11,7 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   // child component property
-  @Input() hero?: Hero;
+  @Input() hero: Hero=new Hero(-1,'','');
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,10 @@ export class HeroDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {
+        console.log("herooooo", hero)
+        this.hero = hero;
+      });
   }
 
   goBack(){
