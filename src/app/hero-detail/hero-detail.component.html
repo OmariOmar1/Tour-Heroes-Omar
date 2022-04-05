@@ -3,7 +3,11 @@
     <h2>{{hero.HeroFirstName | uppercase}}'S Details</h2>
     <div class="info">
       <label for="hero-name">Hero name: </label>
-      <input id="hero-name" class="hero-details-input" [(ngModel)]="hero.HeroFirstName" placeholder="name">
+      <input id="hero-name" class="hero-details-input form-control" [(ngModel)]="hero.HeroFirstName" placeholder="name">
+    </div>
+    <div class="form-group">
+      <label for="hero-description">Hero name: </label>
+      <input id="hero-description" class="hero-details-input form-control" [(ngModel)]="hero.HeroDescription" placeholder="description">
     </div>
     <h3><span>Id: </span>{{hero.HeroId}}</h3>
     <button class="btn" name="backButton" type="button" (click)="goBack()">Back</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -19,22 +20,22 @@ export class HeroesComponent implements OnInit {
     }
   }
 
-  add(HeroFirstName: string): void {
+  add(HeroFirstName: string,HeroDescription: string): void {
     HeroFirstName = HeroFirstName.trim();
-    this.heroService.addHero( {HeroFirstName} as Hero)
-      .subscribe(hero => {this.heroes.push({HeroFirstName} as Hero);
+    HeroDescription=HeroDescription.trim();
+    const HeroId = 99;
+    this.heroService.addHero( {HeroFirstName,HeroDescription} as Hero)
+      .subscribe(_ => {this.heroes.push({HeroId, HeroFirstName,HeroDescription} as Hero);
       });
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
-    console.log(this.heroes);
   }
 
   delete(hero: Hero): void {
     window.alert("Are you sure you Want to delete Hero?")
-    console.log(this.heroes);
     this.heroService.deleteHero(hero.HeroId).subscribe(response => {
       if(response){
         this.heroes = this.heroes.filter(h => h !== hero);

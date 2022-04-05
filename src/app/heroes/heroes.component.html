@@ -1,10 +1,13 @@
 <div class="container">
-  <label for="HeroName">Hero name: </label>-->
-  <input id="HeroName" #HeroFirstName >
+<form class="form-group" >
+  <input type="text" class="form-control" #HeroFirstName placeholder="Hero Name:" required>
+  <input type="text" class="form-control" #HeroDescription placeholder="Hero Description:" required>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(HeroFirstName.value); ">
+  <button type="submit" class="add-button" (click)="add(HeroFirstName.value,HeroDescription.value);">
     Add hero
   </button>
+</form>
+
   <h2>My Heroes</h2>
   <div id="searchComponent">
   </div>
@@ -15,7 +18,7 @@
         <img  src="../../assets/hero.default.png" alt="">
         <div class="hero-card-info">
           <span class="hero-card-id">Hero Number:{{hero.HeroId}}</span>
-          <h3 routerLink="/detail/{{hero.HeroId}}" class="hero-card-name">{{hero.HeroFirstName}}</h3>
+          <h3 routerLink="/detail/{{hero.HeroId}}" class="hero-card-name">{{hero.HeroFirstName | uppercase}}</h3>
           <p class="hero-card-description">{{hero.HeroDescription}}</p>
           <button type="button" class="hero-card-btn btn" title="delete hero" (click)="delete(hero)">Delete
             Hero</button>

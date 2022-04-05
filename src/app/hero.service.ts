@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Hero} from "./hero";
 import {Observable,of} from "rxjs";
 import {MessageService} from "./message.service";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import {SpinnerService} from "./spinner/spinner.service";
 
@@ -15,6 +15,7 @@ export class HeroService {
   private heroListUrl = 'http://localhost/tour-heroes-php/list-heroes.php';
   private addHeroUrl='http://localhost/tour-heroes-php/add-hero.php';
   private heroDeleteUrl='http://localhost/tour-heroes-php/delete-hero.php';
+  private heroUpdateUrl= 'http://localhost/tour-heroes-php/update-hero.php';
 
 
   /*injecting http for getting heroes from client , message service for sending
@@ -48,17 +49,12 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put<any>(this.heroListUrl, hero).pipe(
-      tap(_ => this.log(`updated hero id=${hero.HeroId}`)),
-      catchError(this.handleError<any>('updateHero'))
-    );
+    return this.http.put<any>(this.heroUpdateUrl, hero);
   }
 
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.addHeroUrl, hero).pipe(
-      tap(_=> console.log('added hero'))
-    );
+    return this.http.post<Hero>(this.addHeroUrl, hero);
   }
 
   /** DELETE: delete the hero from the server */
@@ -85,7 +81,7 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroListUrl}/?name=${term}`).pipe(
+    return this.http.get<Hero[]>(`${this.heroListUrl}/?HeroFirstname=${term}`).pipe(
       tap(x => x.length ?
         this.log(`found heroes matching "${term}"`) : this.log(`no heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
