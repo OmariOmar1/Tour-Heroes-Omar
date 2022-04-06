@@ -10,6 +10,7 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  newHeroName$!:string;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class HeroesComponent implements OnInit {
     this.heroService.addHero( {HeroFirstName,HeroDescription} as Hero)
       .subscribe(_ => {this.heroes.push({HeroId, HeroFirstName,HeroDescription} as Hero);
       });
+    this.newHeroName$='';
   }
 
   getHeroes(): void {

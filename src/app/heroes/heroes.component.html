@@ -1,9 +1,10 @@
 <div class="container">
 <form class="form-group" >
-  <input type="text" class="form-control" #HeroFirstName placeholder="Hero Name:" required>
+  <input type="text" class="form-control" #HeroFirstName [(ngModel)]="newHeroName$" placeholder="Hero Name:" required>
   <input type="text" class="form-control" #HeroDescription placeholder="Hero Description:" required>
+
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="submit" class="add-button" (click)="add(HeroFirstName.value,HeroDescription.value);">
+  <button [disabled]="HeroFirstName.value==''"  type="submit" class="btn btn-disabled mt-2" (click)="add(HeroFirstName.value,HeroDescription.value);">
     Add hero
   </button>
 </form>
