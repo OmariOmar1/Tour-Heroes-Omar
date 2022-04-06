@@ -16,6 +16,7 @@ export class HeroService {
   private addHeroUrl='http://localhost/tour-heroes-php/add-hero.php';
   private heroDeleteUrl='http://localhost/tour-heroes-php/delete-hero.php';
   private heroUpdateUrl= 'http://localhost/tour-heroes-php/update-hero.php';
+  private heroSearchUrl='http://localhost/tour-heroes-php/search-heroes.php';
 
 
   /*injecting http for getting heroes from client , message service for sending
@@ -81,8 +82,8 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroListUrl}/?HeroFirstname=${term}`).pipe(
-      tap(x => x.length ?
+    return this.http.get<Hero[]>(`${this.heroSearchUrl}?HeroFirstName=${term}`).pipe(
+      tap(x => x.length?
         this.log(`found heroes matching "${term}"`) : this.log(`no heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
