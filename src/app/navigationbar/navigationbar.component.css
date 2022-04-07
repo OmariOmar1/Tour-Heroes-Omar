@@ -27,8 +27,9 @@ header a {
 
 header {
   padding: 0 20px;
-  background: rgb(0,0,0);
-  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(188,60,192,1) 35%, rgba(0,0,0,1) 64%, rgba(217,18,199,1) 82%, rgba(0,0,0,1) 90%);
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -117,7 +118,9 @@ ul li:hover {
   align-items: center;
   justify-content: flex-start;
   background: rgb(0,0,0);
-  background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 14%, rgba(188,60,192,1) 35%, rgba(0,0,0,1) 64%, rgba(217,18,199,1) 82%, rgba(0,0,0,1) 90%);
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   animation: slideRight 600ms ease-in-out;
   padding: 20px;
 }
